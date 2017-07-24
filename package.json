@@ -1,0 +1,24 @@
+{
+  "name": "testcases",
+  "version": "1.0.0",
+  "description": "",
+  "main": "email_template.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivynogradov/testcases.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivynogradov/testcases/issues"
+  },
+  "homepage": "https://github.com/ivynogradov/testcases#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "fs": "0.0.1-security",
+    "jade": "^1.11.0"
+  }
+}

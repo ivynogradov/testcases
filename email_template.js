@@ -6,24 +6,26 @@ var TestCase = require('./libs/testcases')
 var tasks = new TestCase(67);
 
 
-var generateDataForTasks = () => {
-    tasks
-        .generateDataModel();
-    return tasks.getTaskList();
+var generateDataForTasks = (data) => {
+    //console.log(data.toString('utf8'));
+    return tasks.generateDataModel().getTaskList();
 }
 var generateEmailsTemplate = (item, index, length) => {
-    tasks.setPages(item, jade.render(tasks.getTemplateData(), tasks.getJadeOptions(item)));
-    return tasks.getPage(item);
-}
-var saveCompiledTemplate = (item, index, length) => {
+    console.log(tasks.getTemplateFileName());
+    tasks.setPages(item, jade.renderFile(tasks.getTemplateFileName(), tasks.getJadeOptions(item)));
     fs.writeFileAsync('output'+ item.type +'.html', item.data, tasks.getHTMLOptions())
         .catch((error) => {
-            console.log(error);
+            console.log('Error!!!!');
         });
-
 }
+// var saveCompiledTemplate = (item, index, length) => {
+//     fs.writeFileAsync('output'+ item.type +'.html', item.data, tasks.getHTMLOptions())
+//         .catch((error) => {
+//             console.log(error);
+//         });
 
-console.log('--------- START ----------');
+// }
+
 
 tasks
     .setTestingTemplate('./template/summary.jade')
@@ -34,13 +36,7 @@ tasks
 fs.readFileAsync(tasks.getTemplateFileName())
     .then(generateDataForTasks)
     .each(generateEmailsTemplate)
-    .then(() => {return tasks.getPages()})
-    .each(saveCompiledTemplate)
+    // .then(saveCompiledTemplate)
     .catch((error) => {
         console.log(error);
     })
-
-
-console.log('--------- END ----------');
-
-// console.log(generateUserInfo());
