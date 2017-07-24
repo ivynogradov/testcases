@@ -1,21 +1,21 @@
+'use strict';
 const jade = require('jade');
 const Promise = require('bluebird');
 const fs = Promise.promisifyAll(require('fs'));
+var TestCase = require('./libs/testcases')
+var tasks = new TestCase(67);
 
-let tasks = new require('./libs/testcases').TestCase(67);
 
-
-var generateDataForTasks = (jade_template, tasks) => {
+var generateDataForTasks = () => {
     tasks
-        .setTestingTemplate(jade_template)
         .generateDataModel();
     return tasks.getTaskList();
 }
-var generateEmailsTemplate = (item, index, length, tasks) => {
-    tasks.setPages(item, jade.renderFile(tasks.getTemplateData(), tasks.getJadeOptions(item)));
-    return tasks.getPages();
+var generateEmailsTemplate = (item, index, length) => {
+    tasks.setPages(item, jade.render(tasks.getTemplateData(), tasks.getJadeOptions(item)));
+    return tasks.getPage(item);
 }
-var saveCompiledTemplate = (item, index, length, tasks) => {
+var saveCompiledTemplate = (item, index, length) => {
     fs.writeFileAsync('output'+ item.type +'.html', item.data, tasks.getHTMLOptions())
         .catch((error) => {
             console.log(error);
@@ -27,14 +27,15 @@ console.log('--------- START ----------');
 
 tasks
     .setTestingTemplate('./template/summary.jade')
-    .addTask(taskType.DATA_NOT_DEFINED)
-    .addTask(taskType.LESS_THEN_LIMIT)
-    .addTask(taskType.MORE_THEN_LIMIT);
+    .addTask(tasks.TYPE.DATA_NOT_DEFINED)
+    .addTask(tasks.TYPE.LESS_THEN_LIMIT)
+    .addTask(tasks.TYPE.MORE_THEN_LIMIT);
 
 fs.readFileAsync(tasks.getTemplateFileName())
-    .then(generateDataForTasks(jade_template, tasks))
-    .each(generateEmailsTemplate(item, index, length, tasks))
-    .each(saveCompiledTemplate(item, index, length, tasks))
+    .then(generateDataForTasks)
+    .each(generateEmailsTemplate)
+    .then(() => {return tasks.getPages()})
+    .each(saveCompiledTemplate)
     .catch((error) => {
         console.log(error);
     })

@@ -4,9 +4,9 @@ const _ = require('lodash');
 
 function TestCase(currentProgress){
     this.TYPE = {
-        DATA_NOT_DEFINED: 1,
-        LESS_THEN_LIMIT: 2,
-        MORE_THEN_LIMIT: 3
+        DATA_NOT_DEFINED: '1',
+        LESS_THEN_LIMIT: '2',
+        MORE_THEN_LIMIT: '3'
     }
     this.NAMES = ['Ievgen', 'Pavlo', 'Ostap', 'Ihor', 'Alex', 'Roman', 'Volodymyr', 'Dmytro', 'Yura'];
     this.LASTNAMES = ['Grushevsky', 'Khmelnutsky', 'Polubotko', 'Mazepa', 'Bulba', 'Sagaydachny'];
@@ -20,6 +20,16 @@ function TestCase(currentProgress){
     };
     this.taskList = [];
     this.model = {};
+    this.model.tasks = {};
+    this.model.user = {};
+    this.model.user.percentages = {};
+    this.model.user = {
+        percentages : {
+            current : currentProgress,
+            rest : 100 - this.model.user.percentages.current
+        },
+        progress: 'You have done ' + this.model.user.percentages.current + '%'
+    };
     this.pages = [];
     this.options = {
         output : {
@@ -88,20 +98,15 @@ function TestCase(currentProgress){
         }
 
     }    
-    
-    this.model.user = {
-        progress : 'You have done ' + this.model.user.percentages.current + '%',
-        percentages : {
-            current : currentProgress,
-            rest : 100 - this.model.user.percentages.current
-        }      
-    };
-    this.model.tasks = {};
+
     return this;
 }
 
 TestCase.prototype.generateDataModel = function(){
     var self = this;
+    var cnt = 0;
+    var complited = 0;
+
     var generateUserInfo = () => {
         var result = {};
         result.user = {};
@@ -109,9 +114,9 @@ TestCase.prototype.generateDataModel = function(){
         result.score = {};
         result.score.percentages = {};
 
-        let fname = self.NAMES[Math.round(Math.random() * self.NAMES.length)];
-        let lname = self.LASTNAMES[Math.round(Math.random() * self.LASTNAMES.length)];
-
+        var fname = self.NAMES[Math.round(Math.random() * (self.NAMES.length - 1))];
+        var lname = self.LASTNAMES[Math.round(Math.random() * (self.LASTNAMES.length - 1))];
+        console.log(fname + lname);
         result.user.name = fname + ' ' + lname;
         result.user.initials = fname[0] + lname[0];
         result.user.color.bg = self.COLORS[Math.round(Math.random() * self.COLORS.length)];
@@ -127,6 +132,10 @@ TestCase.prototype.generateDataModel = function(){
         for (let i = 0; i < this.taskList.length; i++){
             switch (this.taskList[i]) {
                 case this.TYPE.DATA_NOT_DEFINED:
+                    this.model.tasks[this.TYPE.DATA_NOT_DEFINED] = {};
+                    this.model.tasks[this.TYPE.DATA_NOT_DEFINED].jade = {};
+                    this.model.tasks[this.TYPE.DATA_NOT_DEFINED].jade.users = {};
+                    
                     this.model.tasks[this.TYPE.DATA_NOT_DEFINED].jade = {
                         pretty : true,
                         sails : this.options.sails,
@@ -144,7 +153,10 @@ TestCase.prototype.generateDataModel = function(){
                     }
 
                     break;
-                case this.Type.LESS_THEN_LIMIT:
+                case this.TYPE.LESS_THEN_LIMIT:
+                    this.model.tasks[this.TYPE.LESS_THEN_LIMIT] = {}
+                    this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade = {}
+                    this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users = {}                
                     this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade = {
                         pretty : true,
                         sails : this.options.sails,
@@ -162,9 +174,26 @@ TestCase.prototype.generateDataModel = function(){
                     }
                     for (let i = 0; i < 5; i++){
                         this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.data.push(generateUserInfo());
+                    };
+                    console.log(this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.data.length);
+                    cnt = this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.data.length;
+                    complited = _.reduce(this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.data, (sum, n) => {
+                        if (n.complited === true) return sum + 1;
+                        else return sum;
+                    }, 0); 
+                    this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.participants.completed = complited;
+                    this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.participants.count = cnt;
+
+                    if (cnt > this.CHALLENGE_FRIENDS_LB_SHOW_LIMIT) {
+                        this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.participants.visible = this.CHALLENGE_FRIENDS_LB_OVER_LIMIT_VISIBLE;
+                        this.model.tasks[this.TYPE.LESS_THEN_LIMIT].jade.users.participants.filtered = cnt - this.CHALLENGE_FRIENDS_LB_OVER_LIMIT_VISIBLE;
                     }
+
                     break;
-                case this.Type.MORE_THEN_LIMIT:
+                case this.TYPE.MORE_THEN_LIMIT:
+                    this.model.tasks[this.TYPE.MORE_THEN_LIMIT] = {}
+                    this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade = {}
+                    this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users = {}
                     this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade = {
                         pretty : true,
                         sails : this.options.sails,
@@ -183,20 +212,22 @@ TestCase.prototype.generateDataModel = function(){
                     for (let i = 0; i < 10; i++){
                         this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users.data.push(generateUserInfo());
                     }
+
+                    cnt = this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users.data.length;
+                    complited = _.reduce(this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users.data, (sum, n) => {
+                        if (n.complited === true) return sum + 1;
+                        else return sum;
+                    }, 0); 
+                    this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users.participants.completed = complited;
+                    this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users.participants.count = cnt;
+
+                    if (cnt > this.CHALLENGE_FRIENDS_LB_SHOW_LIMIT) {
+                        this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users.participants.visible = this.CHALLENGE_FRIENDS_LB_OVER_LIMIT_VISIBLE;
+                        this.model.tasks[this.TYPE.MORE_THEN_LIMIT].jade.users.participants.filtered = cnt - this.CHALLENGE_FRIENDS_LB_OVER_LIMIT_VISIBLE;
+                    }
+
                     break;
             }
-        }
-        const cnt = this.model.users.length;
-        const complited = _.reduce(this.model.users, (sum, n) => {
-            if (n.complited === true) return sum + 1;
-            else return sum;
-        }, 0); 
-        this.model.jade.users.participants.completed = complited;
-        this.model.jade.users.participants.count = cnt;
-
-        if (cnt > this.CHALLENGE_FRIENDS_LB_SHOW_LIMIT) {
-            this.model.jade.users.participants.visible = this.CHALLENGE_FRIENDS_LB_OVER_LIMIT_VISIBLE;
-            this.model.jade.users.participants.filtered = cnt - this.CHALLENGE_FRIENDS_LB_OVER_LIMIT_VISIBLE;
         }
     }
     return this;
@@ -233,12 +264,17 @@ TestCase.prototype.getPages = function(){
     return this.pages;
 }
 
+TestCase.prototype.getPage = function(taskType){
+    return this.pages[taskType];
+}
+
 TestCase.prototype.setPages = function(taskType, data){
     this.pages.push({
         type: taskType,
         data: data
     });
 }
+
 
 TestCase.prototype.getJadeOptions = function(taskType){
     return this.model.tasks[taskType].jade;
@@ -259,4 +295,4 @@ TestCase.prototype.i18n = function(str){
     }    
 }
 
-module.exports.TestCase = TestCase;
+module.exports = TestCase;
