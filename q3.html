@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #outlook a {
+            padding: 0;
+        }
+
+        body {
+            width: 100% !important;
+            min-width: 100%;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+            color: #3B5772;
+            background-color: #F6F6F6;
+            font-family: LucideGrande, TrebuchetMS;
+        }
+
+        .body {
+            background-color: #FFFFFF;
+        }
+
+        hr {
+            color: #EEEEEE;
+            background-color: #EEEEEE;
+            height: 1px;
+            border: none;
+            margin: 0 30px;
+        }
+
+        table {
+            border-spacing: 0px;
+        }
+
+        table td {
+            padding: 0;
+            margin: 0;
+        }
+
+        .challenge-header {
+            background-color: #28AD95;
+            height: 100px;
+        }
+
+        .green {
+            color: #28AD95;
+        }
+
+        .text-pad {
+            color: #3B5772;
+            font-family: LucideGrande, TrebuchetMS;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .text-pad p {
+            margin: 0;
+        }
+
+        .header-pad {
+            color: #3B5772;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: LucideGrande, TrebuchetMS;
+            text-align: center;
+        }
+
+        .text-pad a {
+            color: #3B5772;
+        }
+
+        .left {
+            float: left;
+            text-align: left;
+            margin-left: 30px;
+        }
+
+        .right {
+            float: right;
+            margin-right: 30px;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .box.small {
+            width: 40%;
+        }
+
+        .box.medium {
+            width: 58%;
+        }
+
+        table.full {
+            width: 100%;
+        }
+
+        .progress-bar {
+            background-color: #f07962;
+            height: 7px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 5px 0 5px 5px;
+        }
+
+        .rest {
+            background-color: #ccc;
+            margin: 5px 5px 5px 0;
+        }
+
+        .user-image {
+            height: 2.14286rem;
+            width: 2.14286rem;
+            display: inline-block;
+            border-radius: 2.14286rem;
+            text-align: center;
+            line-height: 2.14286rem;
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+
+        .user-image img {
+            height: 2.14286rem;
+            width: 2.14286rem;
+            display: inline-block;
+            border-radius: 2.14286rem;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .orange {
+            color: #f07962;
+        }
+        /* Buttons */
+
+        table.button,
+        table.tiny-button,
+        table.small-button,
+        table.medium-button,
+        table.large-button {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        table.button td,
+        table.tiny-button td,
+        table.small-button td,
+        table.medium-button td,
+        table.large-button td {
+            display: block;
+            width: auto !important;
+            text-align: center;
+            background: #2ba6cb;
+            border: 1px solid #2284a1;
+            color: #ffffff;
+            padding: 8px 0;
+        }
+
+        table.tiny-button td {
+            padding: 5px 0 4px;
+        }
+
+        table.small-button td {
+            padding: 8px 0 7px;
+        }
+
+        table.medium-button td {
+            padding: 12px 0 10px;
+        }
+
+        table.large-button td {
+            padding: 21px 0 18px;
+        }
+
+        table.button td a,
+        table.tiny-button td a,
+        table.small-button td a,
+        table.medium-button td a,
+        table.large-button td a {
+            font-weight: bold;
+            text-decoration: none;
+            font-family: Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        table.tiny-button td a {
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        table.small-button td a {
+            font-size: 16px;
+        }
+
+        table.medium-button td a {
+            font-size: 20px;
+        }
+
+        table.large-button td a {
+            font-size: 24px;
+        }
+
+        table.button:hover td,
+        table.button:visited td,
+        table.button:active td {
+            background: #2795b6 !important;
+        }
+
+        table.button:hover td a,
+        table.button:visited td a,
+        table.button:active td a {
+            color: #fff !important;
+        }
+
+        table.button:hover td,
+        table.tiny-button:hover td,
+        table.small-button:hover td,
+        table.medium-button:hover td,
+        table.large-button:hover td {
+            background: #2795b6 !important;
+        }
+
+        table.button:hover td a,
+        table.button:active td a,
+        table.button td a:visited,
+        table.tiny-button:hover td a,
+        table.tiny-button:active td a,
+        table.tiny-button td a:visited,
+        table.small-button:hover td a,
+        table.small-button:active td a,
+        table.small-button td a:visited,
+        table.medium-button:hover td a,
+        table.medium-button:active td a,
+        table.medium-button td a:visited,
+        table.large-button:hover td a,
+        table.large-button:active td a,
+        table.large-button td a:visited {
+            color: #ffffff !important;
+        }
+
+        table.button {}
+
+        table.button td {
+            background: #28AD95;
+            border: 0px;
+        }
+
+        table.button:hover td,
+        table.button:visited td,
+        table.button:active td {
+            background: #28AD95 !important;
+        }
+
+        table.button:hover td a,
+        table.button:visited td a,
+        table.button:active td a {
+            background: #28AD95 !important;
+        }
+
+        table.button:hover td,
+        table.tiny-button:hover td,
+        table.small-button:hover td,
+        table.medium-button:hover td,
+        table.large-button:hover td {
+            background: #28AD95 !important;
+        }
+
+        table.button:hover td a,
+        table.button:active td a,
+        table.button td a:visited,
+        table.tiny-button:hover td a,
+        table.tiny-button:active td a,
+        table.tiny-button td a:visited,
+        table.small-button:hover td a,
+        table.small-button:active td a,
+        table.small-button td a:visited,
+        table.medium-button:hover td a,
+        table.medium-button:active td a,
+        table.medium-button td a:visited,
+        table.large-button:hover td a,
+        table.large-button:active td a,
+        table.large-button td a:visited {
+            background: #28AD95 !important;
+        }
+
+        .content.image {
+            text-align: center;
+        }
+        /* Responsive Grid */
+
+        table.body {
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        table.container {
+            width: 580px;
+            margin: 0 auto;
+            text-align: inherit;
+        }
+
+        table.row {
+            padding: 0px;
+            width: 100%;
+            position: relative;
+        }
+
+        table.container table.row {
+            display: block;
+        }
+
+        td.wrapper {
+            padding: 0;
+            position: relative;
+        }
+
+        table.columns,
+        table.column {
+            margin: 0 auto;
+        }
+
+        table.columns td,
+        table.column td {
+            padding: 0px 0px 10px;
+        }
+
+        table.columns td.sub-columns,
+        table.column td.sub-columns,
+        table.columns td.sub-column,
+        table.column td.sub-column {
+            padding-right: 10px;
+        }
+
+        td.sub-column,
+        td.sub-columns {
+            min-width: 0px;
+        }
+
+        table.row td.last,
+        table.container td.last {
+            padding-right: 0px;
+        }
+
+        table.one {
+            width: 30px;
+        }
+
+        table.two {
+            width: 80px;
+        }
+
+        table.three {
+            width: 130px;
+        }
+
+        table.four {
+            width: 180px;
+        }
+
+        table.five {
+            width: 230px;
+        }
+
+        table.six {
+            width: 280px;
+        }
+
+        table.seven {
+            width: 330px;
+        }
+
+        table.eight {
+            width: 380px;
+        }
+
+        table.nine {
+            width: 430px;
+        }
+
+        table.ten {
+            width: 480px;
+        }
+
+        table.eleven {
+            width: 530px;
+        }
+
+        table.twelve {
+            width: 580px;
+        }
+
+        table.one center {
+            min-width: 30px;
+        }
+
+        table.two center {
+            min-width: 80px;
+        }
+
+        table.three center {
+            min-width: 130px;
+        }
+
+        table.four center {
+            min-width: 180px;
+        }
+
+        table.five center {
+            min-width: 230px;
+        }
+
+        table.six center {
+            min-width: 280px;
+        }
+
+        table.seven center {
+            min-width: 330px;
+        }
+
+        table.eight center {
+            min-width: 380px;
+        }
+
+        table.nine center {
+            min-width: 430px;
+        }
+
+        table.ten center {
+            min-width: 480px;
+        }
+
+        table.eleven center {
+            min-width: 530px;
+        }
+
+        table.twelve center {
+            min-width: 580px;
+        }
+
+        table.one .panel center {
+            min-width: 10px;
+        }
+
+        table.two .panel center {
+            min-width: 60px;
+        }
+
+        table.three .panel center {
+            min-width: 110px;
+        }
+
+        table.four .panel center {
+            min-width: 160px;
+        }
+
+        table.five .panel center {
+            min-width: 210px;
+        }
+
+        table.six .panel center {
+            min-width: 260px;
+        }
+
+        table.seven .panel center {
+            min-width: 310px;
+        }
+
+        table.eight .panel center {
+            min-width: 360px;
+        }
+
+        table.nine .panel center {
+            min-width: 410px;
+        }
+
+        table.ten .panel center {
+            min-width: 460px;
+        }
+
+        table.eleven .panel center {
+            min-width: 510px;
+        }
+
+        table.twelve .panel center {
+            min-width: 560px;
+        }
+
+        .body .columns td.one,
+        .body .column td.one {
+            width: 8.333333%;
+        }
+
+        .body .columns td.two,
+        .body .column td.two {
+            width: 16.666666%;
+        }
+
+        .body .columns td.three,
+        .body .column td.three {
+            width: 25%;
+        }
+
+        .body .columns td.four,
+        .body .column td.four {
+            width: 33.333333%;
+        }
+
+        .body .columns td.five,
+        .body .column td.five {
+            width: 41.666666%;
+        }
+
+        .body .columns td.six,
+        .body .column td.six {
+            width: 50%;
+        }
+
+        .body .columns td.seven,
+        .body .column td.seven {
+            width: 58.333333%;
+        }
+
+        .body .columns td.eight,
+        .body .column td.eight {
+            width: 66.666666%;
+        }
+
+        .body .columns td.nine,
+        .body .column td.nine {
+            width: 75%;
+        }
+
+        .body .columns td.ten,
+        .body .column td.ten {
+            width: 83.333333%;
+        }
+
+        .body .columns td.eleven,
+        .body .column td.eleven {
+            width: 91.666666%;
+        }
+
+        .body .columns td.twelve,
+        .body .column td.twelve {
+            width: 100%;
+        }
+
+        td.offset-by-one {
+            padding-left: 50px;
+        }
+
+        td.offset-by-two {
+            padding-left: 100px;
+        }
+
+        td.offset-by-three {
+            padding-left: 150px;
+        }
+
+        td.offset-by-four {
+            padding-left: 200px;
+        }
+
+        td.offset-by-five {
+            padding-left: 250px;
+        }
+
+        td.offset-by-six {
+            padding-left: 300px;
+        }
+
+        td.offset-by-seven {
+            padding-left: 350px;
+        }
+
+        td.offset-by-eight {
+            padding-left: 400px;
+        }
+
+        td.offset-by-nine {
+            padding-left: 450px;
+        }
+
+        td.offset-by-ten {
+            padding-left: 500px;
+        }
+
+        td.offset-by-eleven {
+            padding-left: 550px;
+        }
+
+        td.expander {
+            visibility: hidden;
+            width: 0px;
+            padding: 0 !important;
+        }
+
+        table.columns .text-pad,
+        table.column .text-pad {
+            padding: 0;
+        }
+
+        table.columns .left-text-pad,
+        table.columns .text-pad-left,
+        table.column .left-text-pad,
+        table.column .text-pad-left {
+            padding-left: 10px;
+        }
+
+        table.columns .right-text-pad,
+        table.columns .text-pad-right,
+        table.column .right-text-pad,
+        table.column .text-pad-right {
+            padding-right: 10px;
+        }
+        /* Block Grid */
+
+        .block-grid {
+            width: 100%;
+            max-width: 580px;
+        }
+
+        .block-grid td {
+            display: inline-block;
+            padding: 10px;
+        }
+
+        .two-up td {
+            width: 270px;
+        }
+
+        .three-up td {
+            width: 173px;
+        }
+
+        .four-up td {
+            width: 125px;
+        }
+
+        .five-up td {
+            width: 96px;
+        }
+
+        .six-up td {
+            width: 76px;
+        }
+
+        .seven-up td {
+            width: 62px;
+        }
+
+        .eight-up td {
+            width: 52px;
+        }
+    </style>
+</head>
+
+<body style=3D "width:100% ;min-width:100%;-webkit-text-size-=
+adjust:100%;-ms-text-size-adjust:100%;margin:0;padding:0;color:#3B5772;back=
+ground-color:#F6F6F6;font-family:LucideGrande, TrebuchetMS;">
+    <table class==3D "body" style=3D "background-color:#FFFFFF;border-spacing:0px;height:100%;=
+margin:0 auto;">
+        <tr>
+            <td align=3D "center" valign=3D "top" class=3D "center" st=y le=3D "padding:0;margin:0;">
+                <center>
+                    <table class=3D "container" style=3D "bor=
+der-spacing:0px;width:580px;margin:0 auto;text-align:inherit;">
+                        <tr>
+                            <td styl=e=3D "padding:0;margin:0;">
+                                <table class=3D "row summary" style=3D "border-spac=
+ing:0px;padding:0px;width:100%;position:relative;display:block;">
+                                    <tr>
+                                        <td cl=a ss=3D "wrapper last" style=3D "padding:0;margin:0;position:relative;padding-=
+right:0px;">
+                                            <table class=3D "twelve columns" style=3D "border-spacing:0px;mar=
+gin:0 auto;width:580px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class=3D "text-pad challenge-header"=s tyle=3D "padding:0;margin:0;background-color:#28AD95;height:100px;color:#3=
+B5772;font-family:LucideGrande, TrebuchetMS;text-align:center;font-size:18p=
+x;"><a href=3D "https://mandrillapp.com/track/click/30905977/sprekere.no?p=
+=3DeyJzIjoiVzR0Q1p3RDZFVU9PZDg0Z19QbmdiZ1RkSVBZIiwidiI6MSwicCI6IntcInVcIjoz=
+MDkwNTk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3NwcmVrZXJlLm5vXCIsXCJ=
+pZFwiOlwiYjE2ZWRjZjBiNzNhNDRiNWE1YWIxZWJjYWM1OWNmZjdcIixcInVybF9pZHNcIjpbXC=
+IzN2NiZDU5ZDRmOWIyODY3ZGZkMDcxN2Y2NDUyM2E0M2JjYWYwNzYyXCJdfSJ9" alt=3D "Spre=
+kere" style=3D "color:#3B5772;"><img align=3D"left" src=3D"https://gallery.m=
+ailchimp.com/bf9e9290657ac8ad6569bf775/images/31bdff5d-e6d7-4e76-86a5-83c74=
+feaf5f3.png"></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        </ta=b le>
+                        <table class=3D "container" style=3D "border-spacing:0px;width:580px;marg=
+in:0 auto;text-align:inherit;">
+                            <tr>
+                                <td style=3D "padding:0;margin:0;">
+                                    <table=c lass=3D "row summary" style=3D "border-spacing:0px;padding:0px;width:100%;p=
+osition:relative;display:block;">
+                                        <tr>
+                                            <td class=3D "wrapper last" style=3D "pa=
+dding:0;margin:0;position:relative;padding-right:0px;">
+                                                <table class=3D "twel=
+ve columns" style=3D "border-spacing:0px;margin:0 auto;width:580px;">
+                                                    <tbody>=
+                                                        <tr>
+                                                            <td class=3D "text-pad" style=3D "padding:0;margin:0;color:#3B5772;font-f=
+amily:LucideGrande, TrebuchetMS;text-align:center;font-size:18px;"><img ali=g n=3D "left" src=3D "https://gallery.mailchimp.com/bf9e9290657ac8ad6569bf775/=
+images/7d42dc40-0a51-4f8c-8a40-cf0e8d3dda78.png"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>=
+                                            </td>
+                                        </tr>
+                        </table>
+                        </td>
+                        </tr>
+                    </table>
+                    <table class=3D "row" style=3D "border-sp=
+acing:0px;padding:0px;width:100%;position:relative;">
+                        <tr>
+                            <td class=3D "wrapp=
+er last" style=3D "padding:0;margin:0;position:relative;padding-right:0px;">=
+                                <table class=3D "spacer" style=3D "border-spacing:0px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style==3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>=
+                        </tr>
+                    </table>
+                    <table class=3D "row" style=3D "border-spacing:0px;padding:0px;w=
+idth:100%;position:relative;">
+                        <tbody>
+                            <tr>
+                                <td class=3D "wrapper" style=3D "pad=
+ding:0;margin:0;position:relative;">
+                                    <table class=3D "spacer" style=3D "border=
+-spacing:0px;">
+                                        <tbody>
+                                            <tr>
+                                                <td style=3D "padding:0;margin:0;"><span>&nbsp;</s=
+pan></td></tr></tbody></table><table class=3D"twelve columns" style=3D"bord=
+er-spacing:0px;margin:0 auto;width:580px;"><tbody><tr><td class=3D"header-p=
+ad" style=3D"padding:0px 0px 10px;margin:0;color:#3B5772;font-size:25px;fon=
+t-weight:bold;font-family:LucideGrande, TrebuchetMS;text-align:center;">Har=
+ du kajakk? er slutt <br><br></td><td class=3D"expander" style=3D"padding:0=
+ ;margin:0;visibility:hidden;width:0px;"></td></tr></tbody></table></td></t=
+r></tbody></table><div class=3D"container"><table class=3D"row" style=3D"bo=
+rder-spacing:0px;padding:0px;width:100%;position:relative;"><tbody><tr><td =
+class=3D"wrapper" style=3D"padding:0;margin:0;position:relative;"><table st=
+yle=3D"margin:0 auto;border-spacing:0px;width:580px;" class=3D"twelve colum=
+ns"><tbody><tr><td class=3D"text-pad" style=3D"padding:0;margin:0;color:#3B=
+5772;font-family:LucideGrande, TrebuchetMS;text-align:center;font-size:18px=
+;"><p style=3D"margin:0;">Du fullf=C3=B8rte ikke utfordringen: </p><p style=
+=3D"margin:0;"><b> 10 km padling innen 07.07.2017 </b></p></td><td class=3D=
+"expander" style=3D"padding:0 ;margin:0;visibility:hidden;width:0px;"></td>=
+</tr></tbody></table><table class=3D"spacer" style=3D"border-spacing:0px;">=
+<tbody><tr><td style=3D"padding:0;margin:0;"><span>&nbsp;</span></td>
+                                            </tr>
+                                            <=/ tbody>
+                                    </table>
+                                    <table class=3D "twelve columns" style=3D "border-spacing:0px;=
+margin:0 auto;width:580px;">
+                                        <tbody>
+                                            <tr>
+                                                <div class=3D "content image" style==3D "text-align:center;"><img src=3D "https://sprekere.no/images/emailupdate/=
+e0f/95477889270e06fd2aa5747a1a8626315947ddd7.png" alt=3D "Challenge summary =
+chart" width=3D "400" height=3D "300"></div>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class==3D "spacer" style=3D "border-spacing:0px;">
+                                        <tbody>
+                                            <tr>
+                                                <td style=3D "padding:0=
+;margin:0;"><span>&nbsp;</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>=
+                    </table>
+                    <table class=3D "full" style=3D "border-spacing:0px;width:100%;">
+                        <tbo=d y>
+                            <tr>
+                                <td style=3D "padding:0;margin:0;">
+                                    <div class=3D "box small left" styl=e=3D "float:left;text-align:left;margin-left:30px;width:40%;"><img src=3D "ht=
+tps://gallery.mailchimp.com/bf9e9290657ac8ad6569bf775/images/a734f727-4ef6-=
+49ec-86db-6d4afd1ae42f.png" alt=3D "Challenge triangle icon" align=3D "left"=s tyle=3D
+                                            "margin-right:15px; margin-top: 13px" width=3D "30" height=3D "30">
+                                        <p=c lass=3D "text-pad text-left" style=3D "color:#3B5772;font-family:LucideGran=
+de, TrebuchetMS;text-align:left;font-size:18px;">Du har klart 0 km</p>
+                                            </div=>
+                                            <div class=3D "box small right" style=3D "float:right;margin-right:30px;widt=
+h:40%;">
+                                                <p class=3D "text-pad text-right" style=3D "color:#3B5772;font-family=
+:LucideGrande, TrebuchetMS;text-align:right;font-size:18px;"><span style=3D="width:0px;background-color:#f07962;height:7px;display:inline-block;vertica=
+l-align:middle;margin:5px 0 5px 5px;" class=3D "progress-bar"></span><span s=t yle=3D "width:100px;background-color:#ccc;height:7px;display:inline-block;v=
+ertical-align:middle;margin:5px 5px 5px 0;" class=3D "progress-bar rest"></s=
+pan><span style=3D"margin-left:10px">0 %</span></p>
+                                            </div>
+                                </td>
+                            </tr>
+                            </tbody>=
+                    </table>
+                    <table class=3D "spacer" style=3D "border-spacing:0px;">
+                        <tbody>
+                            <tr>
+                                <t=d style=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+            </tr>
+            </tbody>
+            </tabl=e>
+            <hr style=3D "color:#EEEEEE;background-color:#EEEEEE;height:1px;border:non=
+e;margin:0 30px;">
+            <table class=3D "spacer" style=3D "border-spacing:0px;">
+                <tb=o dy>
+                    <tr>
+                        <td style=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+                    </tr>
+                    <tr>=
+                        <td style=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+                    </tr>
+                    </tbody>
+                    </ta=b le>
+                    <table class=3D "twelve columns" style=3D "border-spacing:0px;margin:0 au=
+to;width:580px;">
+                        <tbody>
+                            <tr>
+                                <td class=3D "text-pad bold" style=3D "padding:0;=
+margin:0;color:#3B5772;font-family:LucideGrande, TrebuchetMS;text-align:cen=
+ter;font-size:18px;font-weight:bold;">Slik gjorde vennene dine det:</td>
+                                </t=r>
+                        </tbody>
+                    </table>
+                    <table class=3D "spacer" style=3D "border-spacing:0px;">
+                        <tb=o dy>
+                            <tr>
+                                <td style=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+                            </tr>
+                            <tr>=
+                                <td style=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+                            </tr>
+                            </tbody>
+                            </ta=b le>
+                            <table class=3D "full" style=3D "border-spacing:0px;width:100%;">
+                                <tbody>
+                                    <=t r>
+                                        <td style=3D "padding:0;margin:0;">
+                                            <div class=3D "box small left" style=3D="float:left;text-align:left;margin-left:30px;width:40%;">
+                                                <p style=3D "margin=
+:0;color:#3B5772;font-family:LucideGrande, TrebuchetMS;text-align:left;font=
+-size:18px;" class=3D "text-pad text-left"><span class=3D "user-image" style==3D "height:2.14286rem;width:2.14286rem;display:inline-block;border-radius:2=
+.14286rem;text-align:center;line-height:2.14286rem;font-weight:bold;font-si=
+ze:0.75rem;"><img src=3D"[object Object]" alt=3D"Vegard Rivenes" style=3D"h=
+eight:2.14286rem;width:2.14286rem;display:inline-block;border-radius:2.1428=
+6rem;"></span><span style=3D "margin-left:25px">Vegard Rivenes</span></p>
+                                                </d=i v>
+                                                <div class=3D "box small right" style=3D "float:right;margin-right:30px;wi=
+dth:40%;">
+                                                    <p class=3D "text-pad text-right" style=3D "color:#3B5772;font-fami=
+ly:LucideGrande, TrebuchetMS;text-align:right;font-size:18px;"><span style==3D "width:0px;background-color:#f07962;height:7px;display:inline-block;vert=
+ical-align:middle;margin:5px 0 5px 5px;" class=3D "progress-bar"></span>
+                                                        <spa=n style=3D "width:100px;background-color:#ccc;height:7px;display:inline-bloc=
+k;vertical-align:middle;margin:5px 5px 5px 0;" class=3D "progress-bar rest">=
+                                                            </span><span style=3D "margin-left:10px">0 %</span></p>
+                                                </div>
+                                        </td>
+                                        </tr>
+                                        </tbo=d y>
+                            </table>
+                            <table class=3D "spacer" style=3D "border-spacing:0px;">
+                                <tbody>
+                                    <tr=>
+                                        <td style=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+        </tr>
+        <tr>
+            <td sty=l e=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+        </tr>
+        </tbody>
+        </table>
+        </d=i v>
+        <hr style=3D "color:#EEEEEE;background-color:#EEEEEE;height:1px;border:no=
+ne;margin:0 30px;">
+        <table class=3D "row" style=3D "border-spacing:0px;padding=
+:0px;width:100%;position:relative;">
+            <tr>
+                <td class=3D "wrapper last" style=3D="padding:0;margin:0;position:relative;padding-right:0px;">
+                    <table class=3D "s=
+pacer" style=3D "border-spacing:0px;">
+                        <tbody>
+                            <tr>
+                                <td style=3D "padding:0;marg=
+in:0;"><span>&nbsp;</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table><br>
+        <=t able class=3D "container" style=3D "border-spacing:0px;width:580px;margin:0 =
+auto;text-align:inherit;">
+            <tr>
+                <td style=3D "padding:0;margin:0;">
+                    <table clas=s=3D "row summary" style=3D "border-spacing:0px;padding:0px;width:100%;positi=
+on:relative;display:block;">
+                        <tr>
+                            <td class=3D "wrapper last" style=3D "padding=
+:0;margin:0;position:relative;padding-right:0px;">
+                                <table class=3D "twelve co=
+lumns" style=3D "border-spacing:0px;margin:0 auto;width:580px;">
+                                    <tbody>
+                                        <tr>
+                                            <=t d class=3D "text-pad" style=3D "padding:0;margin:0;color:#3B5772;font-family=
+:LucideGrande, TrebuchetMS;text-align:center;font-size:18px;"><img align=3D="center" src=3D "https://gallery.mailchimp.com/bf9e9290657ac8ad6569bf775/ima=
+ges/aac4d471-46be-46b6-9d87-16e3779ea2c9.png"></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                            </t=d>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </table>
+            <table class=3D "row" style=3D "border-spaci=
+ng:0px;padding:0px;width:100%;position:relative;">
+                <tr>
+                    <td class=3D "wrapper =
+last" style=3D "padding:0;margin:0;position:relative;padding-right:0px;">
+                        <ta=b le class=3D "spacer" style=3D "border-spacing:0px;">
+                            <tbody>
+                                <tr>
+                                    <td style=3D "=
+padding:0;margin:0;"><span>&nbsp;</span></td>
+                                </tr>
+                            </tbody>
+            </table>
+            </td>
+            </tr=>
+            </table>
+            <table class=3D "row" style=3D "border-spacing:0px;padding:0px;width=
+:100%;position:relative;">
+                <tbody>
+                    <tr>
+                        <td class=3D "wrapper" style=3D "padding=
+:0;margin:0;position:relative;">
+                            <table class=3D "spacer" style=3D "border-spa=
+cing:0px;">
+                                <tbody>
+                                    <tr>
+                                        <td style=3D "padding:0;margin:0;"><span>&nbsp;</span>=
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class=3D "twelve columns" style=3D "border-s=
+pacing:0px;margin:0 auto;width:580px;">
+                                <tbody>
+                                    <tr>
+                                        <td class=3D "text-pad" st=y le=3D "padding:0;margin:0;color:#3B5772;font-family:LucideGrande, Trebuchet=
+MS;text-align:center;font-size:18px;">H=C3=A5per du likte utfordringen og a= t du vil pr=C3=B8ve en til! Vennlig hilsen
+                                            Sprekere <br><br></td>
+                                        <td class==3D "expander" style=3D "padding:0 ;margin:0;visibility:hidden;width:0px;">
+                                            </=t d>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class=3D "spacer" style=3D "border-spacing:0px=
+;">
+                                <tbody>
+                                    <tr>
+                                        <td style=3D "padding:0;margin:0;"><span>&nbsp;</span></td>
+                                        </t=r>
+                                </tbody>
+                            </table>
+                            </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class=3D "container" styl=e=3D "border-spacing:0px;width:580px;margin:0 auto;text-align:inherit;">
+                <tr>=
+                    <td style=3D "padding:0;margin:0;">
+                        <table class=3D "row summary" style=3D "bor=
+der-spacing:0px;padding:0px;width:100%;position:relative;display:block;">
+                            <t=r>
+                                <td class=3D "wrapper last" style=3D "padding:0;margin:0;position:relative;=
+padding-right:0px;">
+                                    <table class=3D "twelve columns" style=3D "border-spacing=
+:0px;margin:0 auto;width:580px;">
+                                        <tbody>
+                                            <tr>
+                                                <td style=3D "padding:0 40px;mar=
+gin:0;color:#3B5772;font-family:LucideGrande, TrebuchetMS;text-align:center=
+;font-size:18px;" class=3D "text-pad"><a href=3D "https://mandrillapp.com/tra=
+ck/click/30905977/sprekere.no?p=3DeyJzIjoiVzR0Q1p3RDZFVU9PZDg0Z19QbmdiZ1RkS=
+VBZIiwidiI6MSwicCI6IntcInVcIjozMDkwNTk3NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpc=
+XFwvXFxcL3NwcmVrZXJlLm5vXCIsXCJpZFwiOlwiYjE2ZWRjZjBiNzNhNDRiNWE1YWIxZWJjYWM=
+1OWNmZjdcIixcInVybF9pZHNcIjpbXCIzN2NiZDU5ZDRmOWIyODY3ZGZkMDcxN2Y2NDUyM2E0M2=
+JjYWYwNzYyXCJdfSJ9" alt=3D "Sprekere" style=3D "color:#3B5772;"><img align=3D=
+"center" height=3D"54" width=3D"150" src=3D"http://gallery.mailchimp.com/bf=
+9e9290657ac8ad6569bf775/images/94b62979-9111-467b-868b-c3a22fd926de.png"></=
+a></td></tr></tbody></table><table class=3D"spacer" style=3D"border-spacing=
+:0px;"><tbody><tr><td style=3D"padding:0;margin:0;"><span>&nbsp;</span></td=
+></tr></tbody></table></td></tr></table></td></tr></table></center></td></t=
+r></table><img src=3D"https://mandrillapp.com/track/open.php" height=3D"1" =
+width=3D"1"><img src=3D"https://mandrillapp.com/track/open.php?u=3D30905977=
+&id=3D1228e77bb6db4d67a4311de0c90b3454" height=3D"1" width=3D"1"></body>
+</html>

@@ -1,0 +1,196 @@
+body
+    table.body
+        tr
+            td.center(align="center",valign="top")
+                center
+                    table.container
+                        tr
+                            td
+                                table.row.summary
+                                    tr
+                                        td.wrapper.last
+                                            table.twelve.columns
+                                                tbody
+                                                    tr
+                                                        td.text-pad.challenge-header
+                                                            a(href="#{sails.config.markets[market].domain}",alt="#{sails.config.markets[market].brand.name}")
+                                                                img(align="left" src="#{sails.config.markets[market].mandrill.logoWhiteUrl}")
+                    table.container
+                        tr
+                            td
+                                table.row.summary
+                                    tr
+                                        td.wrapper.last
+                                            table.twelve.columns
+                                                tbody
+                                                    tr
+                                                        td.text-pad
+                                                            img(align="left" src="#{headerImg}")
+                    table.row
+                        tr
+                            td.wrapper.last
+                                table.spacer
+                                    tbody
+                                        tr
+                                            td
+                                                span &nbsp;
+                    table.row
+                        tbody
+                            tr
+                                td.wrapper
+                                    table.spacer
+                                        tbody
+                                            tr
+                                                td
+                                                    span &nbsp;
+                                    table.twelve.columns
+                                        tbody
+                                            tr
+                                                td.header-pad
+                                                    | #{header} <br/><br/>
+                                                td.expander
+                    
+                    
+                    
+                    
+                    
+                    
+                    .container
+                        table.row
+                            tbody
+                                tr
+                                    td.wrapper
+                                        table.twelve.columns(style="margin: 0 auto")
+                                            tbody
+                                                tr
+                                                    td.text-pad
+                                                        !{body}
+                                                    td.expander
+                                        table.spacer
+                                            tbody
+                                                tr
+                                                    td
+                                                        span &nbsp;
+                                        table.twelve.columns
+                                            tbody
+                                                tr
+                                                    .content.image
+                                                        img(src="#{graph}",alt="Challenge summary chart", width=400,height=300)
+                                        table.spacer
+                                            tbody
+                                                tr
+                                                    td
+                                                        span &nbsp;
+                        table.full
+                            tbody
+                                tr
+                                    td
+                                        .box.small.left
+                                            img(src="#{triangleImg}",alt="Challenge triangle icon", align='left',
+                                            style='margin-right:15px; margin-top: 13px', width=30,height=30)
+                                            p.text-pad.text-left #{user.progress}
+                                        .box.small.right
+                                            p.text-pad.text-right
+                                                span.progress-bar(style="width:#{user.percentages.current}px")
+                                                span.progress-bar.rest(style="width:#{user.percentages.rest}px")
+                                                span(style="margin-left:10px") #{user.percentages.current} %
+                        table.spacer
+                            tbody
+                                tr
+                                    td
+                                        span &nbsp;
+                        hr
+                        table.spacer
+                            tbody
+                                tr
+                                    td
+                                        span &nbsp;
+                                tr
+                                    td
+                                        span &nbsp;
+                        table.twelve.columns
+                            tbody
+                                tr
+                                    td.text-pad.bold asdasdads:
+                        table.spacer
+                            tbody
+                                tr
+                                    td
+                                        span &nbsp;
+                                tr
+                                    td
+                                        span &nbsp;
+
+                        table.full
+                            tbody
+                                tr
+                                    td
+                                        .box.small.left
+                                            p.text-pad.text-left(style='margin:0')
+                                                span.user-image(style="background-color:red;color:white") YV
+                                                span(style="margin-left:25px") Yevhen Vynohradov
+                                        .box.small.right
+                                            p.text-pad.text-right
+                                                span.progress-bar(style="width:45px")
+                                                span.progress-bar.rest(style="width:55px")
+                                                span(style="margin-left:10px") 45 %
+                    table.spacer
+                        tbody
+                            tr
+                                td
+                                    span &nbsp;
+                            tr
+                                td
+                                    span &nbsp;
+
+
+                    hr
+                    table.row
+                        tr
+                            td.wrapper.last
+                                table.spacer
+                                    tbody
+                                        tr
+                                            td
+                                                span &nbsp;
+                    br
+                    table.container
+                        tr
+                            td
+                                table.row.summary
+                                    tr
+                                        td.wrapper.last
+                                            table.twelve.columns
+                                                tbody
+                                                    tr
+                                                        td.text-pad
+                                                                img(align="center" src="#{circleImg}")
+                    table.row
+                        tr
+                            td.wrapper.last
+                                table.spacer
+                                    tbody
+                                        tr
+                                            td
+                                                span &nbsp;
+                    table.row
+                        tbody
+                            tr
+                                td.wrapper
+                                    table.spacer
+                                        tbody
+                                            tr
+                                                td
+                                                    span &nbsp;
+                                    table.twelve.columns
+                                        tbody
+                                            tr
+                                                td.text-pad
+                                                    | #{footer} <br/><br/>
+                                                td.expander
+                                    table.spacer
+                                        tbody
+                                            tr
+                                                td
+                                                    span &nbsp;
+                    table.container

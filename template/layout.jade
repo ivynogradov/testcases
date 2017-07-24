@@ -1,0 +1,543 @@
+doctype strict
+html(xmlns='http://www.w3.org/1999/xhtml')
+head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    | <style type="text/css">
+    | @font-face { font-family: LucidaGrande; src: url(#{sails.config.markets[market].domain}/icons/fonts/LucidaGrande.ttf); }
+    | @font-face { font-family: TrebuchetMS; src: url(#{sails.config.markets[market].domain}/icons/fonts/TrebuchetMS.ttf); }
+    | #outlook a {
+    | padding:0;
+    | }
+    | body{
+    | width:100% !important;
+    | min-width: 100%;
+    | -webkit-text-size-adjust:100%;
+    | -ms-text-size-adjust:100%;
+    | margin:0;
+    | padding:0;
+    | color: #3B5772;
+    | background-color: #F6F6F6;
+    | font-family: LucideGrande, TrebuchetMS;
+    | }
+    | .body {
+    | background-color: #FFFFFF;
+    | }
+    | hr {
+    | color: #EEEEEE;
+    | background-color: #EEEEEE;
+    | height: 1px;
+    | border: none;
+    | margin: 0 30px;
+    | }
+    | table {
+    | border-spacing: 0px;
+    | }
+    | table td {
+    | padding: 0; margin: 0;
+    | }
+    | .challenge-header {
+    | background-color: #28AD95;
+    | height: 100px;
+    | }
+    | .green {
+    | color: #28AD95;
+    | }
+    | .text-pad {
+    | color: #3B5772;
+    | font-family: LucideGrande, TrebuchetMS;
+    | text-align: center;
+    | font-size: 18px;
+    | }
+    | .text-pad p {
+    | margin: 10px 0 5px 0;
+    | }
+    | .header-pad {
+    | color: #3B5772;
+    | font-size: 25px;
+    | font-weight: bold;
+    | font-family: LucideGrande, TrebuchetMS;
+    | text-align: center;
+    | }
+    | .text-pad a {
+    | color: #3B5772;
+    | }
+    | .left {
+    | float: left;
+    | text-align: left;
+    | margin-left: 30px;
+    | }
+    | .right {
+    | float: right;
+    | margin-right: 30px;
+    | }
+    | .text-right {
+    | text-align: right;
+    | }
+    | .text-left {
+    | text-align: left;
+    | }
+    | .box.small{
+    | width:40%;
+    | }
+    | .box.medium{
+    | width:58%;
+    | }
+    | table.full {
+    | width: 100%;
+    | }
+    | .progress-bar {
+    | background-color: #f07962;
+    | height: 7px;
+    | display: inline-block;
+    | vertical-align: middle;
+    | margin: 5px 0 5px 5px;
+    | }
+    | .rest {
+    | background-color: #ccc;
+    | margin: 5px 5px 5px 0;
+    | }
+    | .user-image {
+    | height: 2.14286rem;
+    | width: 2.14286rem;
+    | display: inline-block;
+    | border-radius: 2.14286rem;
+    | text-align: center;
+    | line-height: 2.14286rem;
+    | font-weight: bold;
+    | font-size: 0.75rem;
+    | }
+    | .user-image img {
+    | height: 2.14286rem;
+    | width: 2.14286rem;
+    | display: inline-block;
+    | border-radius: 2.14286rem;
+    | }
+    | .bold {
+    | font-weight: bold;
+    | }
+    | .orange {
+    | color: #f07962;
+    | }
+    | /* Buttons */
+    | table.button,
+    | table.tiny-button,
+    | table.small-button,
+    | table.medium-button,
+    | table.large-button {
+    | width: 100%;
+    | overflow: hidden;
+    | }
+    | table.button td,
+    | table.tiny-button td,
+    | table.small-button td,
+    | table.medium-button td,
+    | table.large-button td {
+    | display: block;
+    | width: auto !important;
+    | text-align: center;
+    | background: #2ba6cb;
+    | border: 1px solid #2284a1;
+    | color: #ffffff;
+    | padding: 8px 0;
+    | }
+    | table.tiny-button td {
+    | padding: 5px 0 4px;
+    | }
+    | table.small-button td {
+    | padding: 8px 0 7px;
+    | }
+    | table.medium-button td {
+    | padding: 12px 0 10px;
+    | }
+    | table.large-button td {
+    | padding: 21px 0 18px;
+    | }
+    | table.button td a,
+    | table.tiny-button td a,
+    | table.small-button td a,
+    | table.medium-button td a,
+    | table.large-button td a {
+    | font-weight: bold;
+    | text-decoration: none;
+    | font-family: Helvetica, Arial, sans-serif;
+    | color: #ffffff;
+    | font-size: 16px;
+    | }
+    | table.tiny-button td a {
+    | font-size: 12px;
+    | font-weight: normal;
+    | }
+    | table.small-button td a {
+    | font-size: 16px;
+    | }
+    | table.medium-button td a {
+    | font-size: 20px;
+    | }
+    | table.large-button td a {
+    | font-size: 24px;
+    | }
+    | table.button:hover td,
+    | table.button:visited td,
+    | table.button:active td {
+    | background: #2795b6 !important;
+    | }
+    | table.button:hover td a,
+    | table.button:visited td a,
+    | table.button:active td a {
+    | color: #fff !important;
+    | }
+    | table.button:hover td,
+    | table.tiny-button:hover td,
+    | table.small-button:hover td,
+    | table.medium-button:hover td,
+    | table.large-button:hover td {
+    | background: #2795b6 !important;
+    | }
+    | table.button:hover td a,
+    | table.button:active td a,
+    | table.button td a:visited,
+    | table.tiny-button:hover td a,
+    | table.tiny-button:active td a,
+    | table.tiny-button td a:visited,
+    | table.small-button:hover td a,
+    | table.small-button:active td a,
+    | table.small-button td a:visited,
+    | table.medium-button:hover td a,
+    | table.medium-button:active td a,
+    | table.medium-button td a:visited,
+    | table.large-button:hover td a,
+    | table.large-button:active td a,
+    | table.large-button td a:visited {
+    | color: #ffffff !important;
+    | }
+    | table.button{
+    | }
+    | table.button td {
+    | background:#28AD95;
+    | border:0px;
+    | }
+    | table.button:hover td,
+    | table.button:visited td,
+    | table.button:active td {
+    | background: #28AD95 !important;
+    | }
+    | table.button:hover td a,
+    | table.button:visited td a,
+    | table.button:active td a {
+    | background: #28AD95 !important;
+    | }
+    | table.button:hover td,
+    | table.tiny-button:hover td,
+    | table.small-button:hover td,
+    | table.medium-button:hover td,
+    | table.large-button:hover td {
+    | background: #28AD95 !important;
+    | }
+    | table.button:hover td a,
+    | table.button:active td a,
+    | table.button td a:visited,
+    | table.tiny-button:hover td a,
+    | table.tiny-button:active td a,
+    | table.tiny-button td a:visited,
+    | table.small-button:hover td a,
+    | table.small-button:active td a,
+    | table.small-button td a:visited,
+    | table.medium-button:hover td a,
+    | table.medium-button:active td a,
+    | table.medium-button td a:visited,
+    | table.large-button:hover td a,
+    | table.large-button:active td a,
+    | table.large-button td a:visited {
+    | background: #28AD95 !important;
+    | }
+    | .content.image {
+    | text-align: center;
+    | }
+    | /* Responsive Grid */
+    | table.body {
+    | height: 100%;
+    | margin: 0 auto;
+    | }
+    | table.container {
+    | width: 580px;
+    | margin: 0 auto;
+    | text-align: inherit;
+    | }
+    | table.row {
+    | padding: 0px;
+    | width: 100%;
+    | position: relative;
+    | }
+    | table.container table.row {
+    | display: block;
+    | }
+    | td.wrapper {
+    | padding: 0;
+    | position: relative;
+    | }
+    | table.columns,
+    | table.column {
+    | margin: 0 auto;
+    | }
+    | table.columns td,
+    | table.column td {
+    | padding: 0px 0px 10px;
+    | }
+    | table.columns td.sub-columns,
+    | table.column td.sub-columns,
+    | table.columns td.sub-column,
+    | table.column td.sub-column {
+    | padding-right: 10px;
+    | }
+    | td.sub-column, td.sub-columns {
+    | min-width: 0px;
+    | }
+    | table.row td.last,
+    | table.container td.last {
+    | padding-right: 0px;
+    | }
+    | table.one { width: 30px; }
+    | table.two { width: 80px; }
+    | table.three { width: 130px; }
+    | table.four { width: 180px; }
+    | table.five { width: 230px; }
+    | table.six { width: 280px; }
+    | table.seven { width: 330px; }
+    | table.eight { width: 380px; }
+    | table.nine { width: 430px; }
+    | table.ten { width: 480px; }
+    | table.eleven { width: 530px; }
+    | table.twelve { width: 580px; }
+    | table.one center { min-width: 30px; }
+    | table.two center { min-width: 80px; }
+    | table.three center { min-width: 130px; }
+    | table.four center { min-width: 180px; }
+    | table.five center { min-width: 230px; }
+    | table.six center { min-width: 280px; }
+    | table.seven center { min-width: 330px; }
+    | table.eight center { min-width: 380px; }
+    | table.nine center { min-width: 430px; }
+    | table.ten center { min-width: 480px; }
+    | table.eleven center { min-width: 530px; }
+    | table.twelve center { min-width: 580px; }
+    | table.one .panel center { min-width: 10px; }
+    | table.two .panel center { min-width: 60px; }
+    | table.three .panel center { min-width: 110px; }
+    | table.four .panel center { min-width: 160px; }
+    | table.five .panel center { min-width: 210px; }
+    | table.six .panel center { min-width: 260px; }
+    | table.seven .panel center { min-width: 310px; }
+    | table.eight .panel center { min-width: 360px; }
+    | table.nine .panel center { min-width: 410px; }
+    | table.ten .panel center { min-width: 460px; }
+    | table.eleven .panel center { min-width: 510px; }
+    | table.twelve .panel center { min-width: 560px; }
+    | .body .columns td.one,
+    | .body .column td.one { width: 8.333333%; }
+    | .body .columns td.two,
+    | .body .column td.two { width: 16.666666%; }
+    | .body .columns td.three,
+    | .body .column td.three { width: 25%; }
+    | .body .columns td.four,
+    | .body .column td.four { width: 33.333333%; }
+    | .body .columns td.five,
+    | .body .column td.five { width: 41.666666%; }
+    | .body .columns td.six,
+    | .body .column td.six { width: 50%; }
+    | .body .columns td.seven,
+    | .body .column td.seven { width: 58.333333%; }
+    | .body .columns td.eight,
+    | .body .column td.eight { width: 66.666666%; }
+    | .body .columns td.nine,
+    | .body .column td.nine { width: 75%; }
+    | .body .columns td.ten,
+    | .body .column td.ten { width: 83.333333%; }
+    | .body .columns td.eleven,
+    | .body .column td.eleven { width: 91.666666%; }
+    | .body .columns td.twelve,
+    | .body .column td.twelve { width: 100%; }
+    | td.offset-by-one { padding-left: 50px; }
+    | td.offset-by-two { padding-left: 100px; }
+    | td.offset-by-three { padding-left: 150px; }
+    | td.offset-by-four { padding-left: 200px; }
+    | td.offset-by-five { padding-left: 250px; }
+    | td.offset-by-six { padding-left: 300px; }
+    | td.offset-by-seven { padding-left: 350px; }
+    | td.offset-by-eight { padding-left: 400px; }
+    | td.offset-by-nine { padding-left: 450px; }
+    | td.offset-by-ten { padding-left: 500px; }
+    | td.offset-by-eleven { padding-left: 550px; }
+    | td.expander {
+    | visibility: hidden;
+    | width: 0px;
+    | padding: 0 !important;
+    | }
+    | table.columns .text-pad,
+    | table.column .text-pad {
+    | padding: 0;
+    | }
+    | table.columns .left-text-pad,
+    | table.columns .text-pad-left,
+    | table.column .left-text-pad,
+    | table.column .text-pad-left {
+    | padding-left: 10px;
+    | }
+    | table.columns .right-text-pad,
+    | table.columns .text-pad-right,
+    | table.column .right-text-pad,
+    | table.column .text-pad-right {
+    | padding-right: 10px;
+    | }
+    | /* Block Grid */
+    | .block-grid {
+    | width: 100%;
+    | max-width: 580px;
+    | }
+    | .block-grid td {
+    | display: inline-block;
+    | padding:10px;
+    | }
+    | .two-up td {
+    | width:270px;
+    | }
+    | .three-up td {
+    | width:173px;
+    | }
+    | .four-up td {
+    | width:125px;
+    | }
+    | .five-up td {
+    | width:96px;
+    | }
+    | .six-up td {
+    | width:76px;
+    | }
+    | .seven-up td {
+    | width:62px;
+    | }
+    | .eight-up td {
+    | width:52px;
+    | }
+    |</style>
+body
+    -var headerImg = 'https://gallery.mailchimp.com/bf9e9290657ac8ad6569bf775/images/7d42dc40-0a51-4f8c-8a40-cf0e8d3dda78.png';
+    -var circleImg = 'https://gallery.mailchimp.com/bf9e9290657ac8ad6569bf775/images/aac4d471-46be-46b6-9d87-16e3779ea2c9.png';
+    -var triangleImg = 'https://gallery.mailchimp.com/bf9e9290657ac8ad6569bf775/images/a734f727-4ef6-49ec-86db-6d4afd1ae42f.png';
+    table.body
+        tr
+            td.center(align="center",valign="top")
+                center
+                    table.container
+                        tr
+                            td
+                                table.row.summary
+                                    tr
+                                        td.wrapper.last
+                                            table.twelve.columns
+                                                tbody
+                                                    tr
+                                                        td.text-pad.challenge-header
+                                                            a(href="#{sails.config.markets[market].domain}",alt="#{sails.config.markets[market].brand.name}")
+                                                                img(align="left" src="#{sails.config.markets[market].mandrill.logoWhiteUrl}")
+                    table.container
+                        tr
+                            td
+                                table.row.summary
+                                    tr
+                                        td.wrapper.last
+                                            table.twelve.columns
+                                                tbody
+                                                    tr
+                                                        td.text-pad
+                                                            img(align="left" src="#{headerImg}")
+                    table.row
+                        tr
+                            td.wrapper.last
+                                table.spacer
+                                    tbody
+                                        tr
+                                            td
+                                                span &nbsp;
+                    table.row
+                        tbody
+                            tr
+                                td.wrapper
+                                    table.spacer
+                                        tbody
+                                            tr
+                                                td
+                                                    span &nbsp;
+                                    table.twelve.columns
+                                        tbody
+                                            tr
+                                                td.header-pad
+                                                    | #{header} <br/><br/>
+                                                td.expander
+                    block content
+                    hr
+                    table.row
+                        tr
+                            td.wrapper.last
+                                table.spacer
+                                    tbody
+                                        tr
+                                            td
+                                                span &nbsp;
+                    br
+                    table.container
+                        tr
+                            td
+                                table.row.summary
+                                    tr
+                                        td.wrapper.last
+                                            table.twelve.columns
+                                                tbody
+                                                    tr
+                                                        td.text-pad
+                                                                img(align="center" src="#{circleImg}")
+                    table.row
+                        tr
+                            td.wrapper.last
+                                table.spacer
+                                    tbody
+                                        tr
+                                            td
+                                                span &nbsp;
+                    table.row
+                        tbody
+                            tr
+                                td.wrapper
+                                    table.spacer
+                                        tbody
+                                            tr
+                                                td
+                                                    span &nbsp;
+                                    table.twelve.columns
+                                        tbody
+                                            tr
+                                                td.text-pad
+                                                    | #{footer} <br/><br/>
+                                                td.expander
+                                    table.spacer
+                                        tbody
+                                            tr
+                                                td
+                                                    span &nbsp;
+                    table.container
+                        tr
+                            td
+                                table.row.summary
+                                    tr
+                                        td.wrapper.last
+                                            table.twelve.columns
+                                                tbody
+                                                    tr
+                                                        td.text-pad(style='padding: 0 40px')
+                                                            a(href="#{sails.config.markets[market].domain}",alt="#{sails.config.markets[market].brand.name}")
+                                                                img(align="center" height="54" width="150" src="#{sails.config.markets[market].mandrill.logoUrl}")
+                                            table.spacer
+                                                tbody
+                                                    tr
+                                                        td
+                                                            span &nbsp;

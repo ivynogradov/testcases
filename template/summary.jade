@@ -1,0 +1,132 @@
+extend layout
+block content
+    .container
+        table.row
+            tbody
+                tr
+                    td.wrapper
+                        table.twelve.columns(style="margin: 0 auto")
+                            tbody
+                                tr
+                                    td.text-pad
+                                        !{body}
+                                    td.expander
+                        table.spacer
+                            tbody
+                                tr
+                                    td
+                                        span &nbsp;
+                        table.twelve.columns
+                            tbody
+                                tr
+                                    .content.image
+                                        img(src="#{graph}",alt="Challenge summary chart", width=400,height=300)
+                        table.spacer
+                            tbody
+                                tr
+                                    td
+                                        span &nbsp;
+        table.full
+            tbody
+                tr
+                    td
+                        .box.small.left
+                            img(src="#{triangleImg}",alt="Challenge triangle icon", align='left',
+                            style='margin-right:15px; margin-top: 13px', width=30,height=30)
+                            p.text-pad.text-left #{user.progress}
+                        .box.small.right
+                            p.text-pad.text-right
+                                span.progress-bar(style="width:#{user.percentages.current}px")
+                                span.progress-bar.rest(style="width:#{user.percentages.rest}px")
+                                span(style="margin-left:10px; display:inline-block; width:60px; text-align:right") #{user.percentages.current} %
+        table.spacer
+            tbody
+                tr
+                    td
+                        span &nbsp;
+        if (typeof(lbData) !== 'undefined')
+            script
+                | var lbData = !{JSON.stringify(lbData)}
+            hr
+            table.spacer
+                tbody
+                    tr
+                        td
+                            span &nbsp;
+                    tr
+                        td
+                            span &nbsp;
+            table.twelve.columns
+                tbody
+                    tr
+                        td.text-pad.bold #{i18n("MAIL_CHALLENGE_SUMMARY_FRIENDS_DID_TEXT")}:
+            table.spacer
+                tbody
+                    tr
+                        td
+                            span &nbsp;
+                    tr
+                        td
+                            span &nbsp;
+            if lbData.data.length > lbData.limit
+                table.twelve.columns
+                    tbody
+                        tr
+                            td.text-pad.orange #{lbData.participants.completed}/#{lbData.participants.count} #{i18n("MAIL_CHALLENGE_SUMMARY_COMPLETED_LABEL")}!
+                table.spacer
+                    tbody
+                        tr
+                            td
+                                span &nbsp;
+                        tr
+                            td
+                                span &nbsp;
+                table(style='with: 200px')
+                    tbody
+                        tr
+                            each friend in lbData.data.slice(0, lbData.participants.visible)
+                                td(style="padding-right:5px")
+                                    if friend.user.avatar
+                                        span.user-image
+                                            img(src="#{sails.config.markets[market].domain}#{friend.user.avatar.crop}" alt="#{friend.user.name}")
+                                    else
+                                        span.user-image(style="background-color:#{friend.user.color.bg};color:#{friend.user.color.fg}") #{friend.user.initials}
+                table.spacer
+                    tbody
+                        tr
+                            td
+                                span &nbsp;
+                        tr
+                            td
+                                span &nbsp;
+                table.twelve.columns
+                    tbody
+                        tr
+                            td.text-pad + #{lbData.participants.filtered} #{i18n("MAIL_CHALLENGE_SUMMARY_OTHERS_LABEL")}
+            else
+                each friend in lbData.data
+                    table.full
+                        tbody
+                            tr
+                                td
+                                    .box.small.left
+                                        p.text-pad.text-left
+                                            if friend.user.avatar
+                                                span.user-image
+                                                    img(src="#{sails.config.markets[market].domain}#{friend.user.avatar.crop}" alt="#{friend.user.name}")
+                                            else
+                                                span.user-image(style="background-color:#{friend.user.color.bg};color:#{friend.user.color.fg}") #{friend.user.initials}
+                                            span(style="margin-left:25px") #{friend.user.name}
+                                    .box.small.right
+                                        p.text-pad.text-right
+                                            span.progress-bar(style="width:#{friend.score.percentages.current}px")
+                                            span.progress-bar.rest(style="width:#{friend.score.percentages.rest}px")
+                                            span(style="margin-left:10px; display:inline-block; width:60px; text-align:right") #{friend.score.percentages.current} %
+            table.spacer
+                tbody
+                    tr
+                        td
+                            span &nbsp;
+                    tr
+                        td
+                            span &nbsp;
